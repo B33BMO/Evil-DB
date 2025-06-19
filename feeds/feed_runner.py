@@ -32,7 +32,7 @@ def firehol_level1():
     r = requests.get(url)
     for line in r.text.splitlines():
         line = line.strip()
- if line and not line.startswith("#"):
+        if line and not line.startswith("#"):
             insert_ip(line, "malicious", "firehol_level1", "high", "Auto-imported")
 
 def blocklist_de():
@@ -45,7 +45,7 @@ def blocklist_de():
             insert_ip(line, "ssh_brute", "blocklist_de", "medium", "Aggressive brute force")
 
 def artillery_banlist():
-    print("🛡️ Artillery banlist...")
+    print("🛡️  Artillery banlist...")
     url = "https://raw.githubusercontent.com/trustedsec/artillery/master/banlist.txt"
     r = requests.get(url)
     for line in r.text.splitlines():
@@ -58,7 +58,7 @@ def malwaredomainlist():
     url = "http://www.malwaredomainlist.com/hostslist/hosts.txt"
     r = requests.get(url)
     for line in r.text.splitlines():
-if line.startswith("#") or not line.strip():
+        if line.startswith("#") or not line.strip():
             continue
         parts = line.split()
         if len(parts) >= 2:
@@ -66,7 +66,7 @@ if line.startswith("#") or not line.strip():
             insert_ip(ip, "malware", "malwaredomainlist", "medium", "Malware-serving domain")
 
 def binarydefense_artillery():
-    print("⚔️ Binary Defense Artillery...")
+    print("⚔️  Binary Defense Artillery...")
     url = "https://raw.githubusercontent.com/trustedsec/artillery/master/banlist.txt"
     r = requests.get(url)
     for line in r.text.splitlines():
