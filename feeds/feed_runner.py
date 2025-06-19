@@ -76,7 +76,7 @@ def binarydefense_artillery():
 
 def run_all_feeds():
     print("🚀 Starting EvilWatch Feed Importer")
-    firehol_level1()
+    firehol_level1() 
     blocklist_de()
     artillery_banlist()
     malwaredomainlist()
